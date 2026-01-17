@@ -409,6 +409,9 @@ export function EditorToolbar({ editor, zoom, setZoom }: EditorToolbarProps) {
                 key={color}
                 className="h-8 w-8 rounded-full border border-border shadow-sm hover:scale-110 transition-transform"
                 style={{ backgroundColor: color }}
+                type="button"  
+                aria-label={`Set text color to ${color}`}  
+                title={`Set text color to ${color}`}  
                 onClick={() => editor.chain().focus().setColor(color).run()}
               />
             ))}
