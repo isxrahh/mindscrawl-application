@@ -39,7 +39,15 @@ export function NavFooter({
     email: string;
     avatar: string;
   };
-}) {
+}) {  
+  const initials =  
+    user.name  
+      .split(" ")  
+      .filter(Boolean)  
+      .map((part) => part[0])  
+      .slice(0, 2)  
+      .join("")  
+      .toUpperCase();  
   return (
     <SidebarFooter className="p-4">
       <SidebarMenu>
@@ -50,8 +58,10 @@ export function NavFooter({
                 <DropdownMenuTrigger asChild>
                   <Avatar className="h-8 w-8 rounded-full">
                     <AvatarImage src={user.avatar} alt={user.name} />
-                    <AvatarFallback className="rounded-full">CN</AvatarFallback>
-                  </Avatar>
+                   <AvatarFallback className="rounded-full">  
+                     {initials || "?"}  
+                    </AvatarFallback>  
+                   </Avatar>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent className="m-2">
                   <DropdownMenuItem>
